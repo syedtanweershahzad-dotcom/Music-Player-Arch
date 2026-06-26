@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="player-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-music"></i> <span>Harmonix</span>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-category="all"><i class="fa-solid fa-house"></i> All Songs</button>
+                <button class="nav-item" data-category="Pop"><i class="fa-solid fa-fire"></i> Pop</button>
+                <button class="nav-item" data-category="Rock"><i class="fa-solid fa-guitar"></i> Rock</button>
+                <button class="nav-item" data-category="Lo-Fi"><i class="fa-solid fa-mug-hot"></i> Lo-Fi</button>
+            </nav>
+            <div class="playlists-section">
+                <h3>Playlists</h3>
+                <ul id="playlist-tabs">
+                    <li class="playlist-tab active" data-playlist="all">All Tracks</li>
+                    <li class="playlist-tab" data-playlist="favorites">Favorites</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Search tracks or artists...">
+                </div>
+            </header>
+
+            <section class="music-section">
+                <h2 id="current-view-title">All Songs</h2>
+                <div class="track-list-header">
+                    <span>#</span><span>Title</span><span>Artist</span><span>Genre</span><span>Action</span>
+                </div>
+                <div id="tracks-container" class="tracks-container">
+                    </div>
+            </section>
+        </main>
+
+        <footer class="player-controls">
+            <audio id="audio-player"></audio>
+
+            <div class="now-playing">
+                <img src="https://via.placeholder.com/60" alt="Album Art" id="current-art">
+                <div class="track-details">
+                    <div id="current-title" class="track-name">Select a track</div>
+                    <div id="current-artist" class="track-artist">-</div>
+                </div>
+                <button id="favorite-btn" class="action-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+
+            <div class="playback-container">
+                <div class="control-buttons">
+                    <button id="prev-btn" class="ctrl-btn"><i class="fa-solid fa-backward-step"></i></button>
+                    <button id="play-btn" class="ctrl-btn play-main"><i class="fa-solid fa-play"></i></button>
+                    <button id="next-btn" class="ctrl-btn"><i class="fa-solid fa-forward-step"></i></button>
+                </div>
+                <div class="progress-bar-container">
+                    <span id="current-time">0:00</span>
+                    <input type="range" id="progress-bar" value="0" min="0" max="100">
+                    <span id="total-duration">0:00</span>
+                </div>
+            </div>
+
+            <div class="volume-container">
+                <i id="volume-icon" class="fa-solid fa-volume-high"></i>
+                <input type="range" id="volume-bar" value="80" min="0" max="100">
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
